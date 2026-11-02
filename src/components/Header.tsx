@@ -14,7 +14,7 @@ export default function Header({ showProgress }: HeaderProps) {
         
         <div className="flex items-center">
           <img
-            src="/paypal-ui/paypal-logo.svg"
+            src="/paypal-logo.svg"
             alt="PayPal"
             className="h-8"
           />
