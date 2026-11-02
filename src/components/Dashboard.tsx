@@ -57,7 +57,7 @@ export default function Dashboard({ transactions, onCreateInvoice, onNavigate }:
         
         <div className="grid grid-cols-4 gap-4">
           <button
-            onClick={() => {}}
+            onClick={() => onNavigate('sendRequest')}
             className="flex flex-col items-center space-y-2"
           >
             <div className="w-16 h-16 bg-paypal-blue rounded-full flex items-center justify-center shadow-lg hover:bg-paypal-dark transition-colors">
@@ -67,7 +67,7 @@ export default function Dashboard({ transactions, onCreateInvoice, onNavigate }:
           </button>
 
           <button
-            onClick={() => {}}
+            onClick={() => onNavigate('wallet')}
             className="flex flex-col items-center space-y-2"
           >
             <div className="w-16 h-16 bg-paypal-blue rounded-full flex items-center justify-center shadow-lg hover:bg-paypal-dark transition-colors">

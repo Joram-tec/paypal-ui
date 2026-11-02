@@ -42,4 +42,4 @@ export interface Invoice {
   reference?: string;
 }
 
-export type Screen = 'dashboard' | 'invoices' | 'createInvoice' | 'addItem' | 'addTax' | 'moreOptions' | 'preview' | 'success';
+export type Screen = 'loginWelcome' | 'loginPassword' | 'dashboard' | 'invoices' | 'createInvoice' | 'addItem' | 'addTax' | 'moreOptions' | 'preview' | 'success' | 'sendRequest' | 'wallet' | 'help';

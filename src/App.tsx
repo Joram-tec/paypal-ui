@@ -9,10 +9,17 @@ import AddTax from './components/AddTax';
 import MoreOptions from './components/MoreOptions';
 import InvoicePreview from './components/InvoicePreview';
 import SuccessScreen from './components/SuccessScreen';
+import LoginWelcome from './components/LoginWelcome';
+import LoginPassword from './components/LoginPassword';
+import SideMenu from './components/SideMenu';
+import SendRequest from './components/SendRequest';
+import Wallet from './components/Wallet';
+import Help from './components/Help';
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState<Screen>('dashboard');
+  const [currentScreen, setCurrentScreen] = useState<Screen>('loginWelcome');
   const [showProgress, setShowProgress] = useState(false);
+  const [showSideMenu, setShowSideMenu] = useState(false);
   const [transactionHistory, setTransactionHistory] = useState<Transaction[]>([
     {
       id: '1',
@@ -148,10 +155,34 @@ function App() {
     });
   };
 
+  const handleLogout = () => {
+    navigateTo('loginWelcome');
+  };
+
   return (
     <div className="min-h-screen bg-paypal-bg">
-      <Header showProgress={showProgress} />
-      
+      <SideMenu
+        isOpen={showSideMenu}
+        onClose={() => setShowSideMenu(false)}
+        onNavigate={navigateTo}
+        onLogout={handleLogout}
+      />
+
+      {currentScreen !== 'loginWelcome' && currentScreen !== 'loginPassword' && (
+        <Header showProgress={showProgress} onMenuClick={() => setShowSideMenu(true)} />
+      )}
+
+      {currentScreen === 'loginWelcome' && (
+        <LoginWelcome onContinue={() => navigateTo('loginPassword')} />
+      )}
+
+      {currentScreen === 'loginPassword' && (
+        <LoginPassword
+          onBack={() => navigateTo('loginWelcome')}
+          onSubmit={() => navigateTo('dashboard')}
+        />
+      )}
+
       {currentScreen === 'dashboard' && (
         <Dashboard
           transactions={transactionHistory}
@@ -230,6 +261,18 @@ function App() {
         <SuccessScreen
           onDone={() => navigateTo('dashboard')}
         />
+      )}
+
+      {currentScreen === 'sendRequest' && (
+        <SendRequest onBack={() => navigateTo('dashboard')} />
+      )}
+
+      {currentScreen === 'wallet' && (
+        <Wallet onBack={() => navigateTo('dashboard')} />
+      )}
+
+      {currentScreen === 'help' && (
+        <Help onBack={() => navigateTo('dashboard')} />
       )}
     </div>
   );
