@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/paypal-ui/sw.js', { scope: '/paypal-ui/' })})}
