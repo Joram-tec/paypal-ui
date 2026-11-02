@@ -14,8 +14,12 @@ export default function LoginWelcome({ onContinue }: LoginWelcomeProps) {
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-8">
-        <div className="w-24 h-24 rounded-full bg-paypal-light flex items-center justify-center mb-6">
-          <span className="text-white text-4xl font-bold">N</span>
+        <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-gray-100">
+          <img
+            src="/images/girl-avatar.svg"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
         </div>
 
         <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">

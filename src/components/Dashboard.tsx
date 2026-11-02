@@ -23,12 +23,12 @@ export default function Dashboard({ transactions, onCreateInvoice, onNavigate }:
     <div className="pb-32">
       <div className="px-4 py-6">
         <h1 className="text-2xl font-semibold text-gray-900 mb-6">Recent Activity</h1>
-        
+
         <div className="space-y-3">
           {transactions.map((transaction) => (
             <div
               key={transaction.id}
-              className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+              className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-100"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -42,7 +42,7 @@ export default function Dashboard({ transactions, onCreateInvoice, onNavigate }:
                 </div>
                 <div className="text-right">
                   <p className={`font-semibold ${getAmountColor(transaction.type)}`}>
-                    {getAmountPrefix(transaction.type)}US${transaction.amount.toFixed(2)}
+                    {getAmountPrefix(transaction.type)}US${transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
                   <p className="text-sm text-gray-500">{transaction.date}</p>
                 </div>
@@ -54,7 +54,7 @@ export default function Dashboard({ transactions, onCreateInvoice, onNavigate }:
 
       <div className="px-4 py-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
-        
+
         <div className="grid grid-cols-4 gap-4">
           <button
             onClick={() => onNavigate('sendRequest')}

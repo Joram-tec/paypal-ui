@@ -23,34 +23,58 @@ function App() {
   const [transactionHistory, setTransactionHistory] = useState<Transaction[]>([
     {
       id: '1',
-      type: 'invoice_sent',
-      name: 'John Smith',
-      amount: 150.00,
+      type: 'money_received',
+      name: 'Payment Received',
+      amount: 30000.00,
       date: 'Oct 25, 2026',
-      status: 'Invoice sent'
+      status: 'Money received'
     },
     {
       id: '2',
-      type: 'request_canceled',
-      name: 'Sarah Johnson',
-      amount: 75.00,
-      date: 'Oct 24, 2026',
-      status: 'Request sent - Canceled'
-    },
-    {
-      id: '3',
       type: 'payment',
-      name: 'Mike Davis',
-      amount: 200.00,
-      date: 'Oct 23, 2026',
+      name: 'Transfer Sent',
+      amount: 29000.00,
+      date: 'Oct 24, 2026',
       status: 'Payment'
     },
     {
-      id: '4',
+      id: '3',
       type: 'money_received',
-      name: 'Emily Brown',
-      amount: 325.50,
+      name: 'Payment Received',
+      amount: 1000.00,
+      date: 'Oct 23, 2026',
+      status: 'Money received'
+    },
+    {
+      id: '4',
+      type: 'payment',
+      name: 'Transfer Sent',
+      amount: 300.00,
       date: 'Oct 22, 2026',
+      status: 'Payment'
+    },
+    {
+      id: '5',
+      type: 'money_received',
+      name: 'Payment Received',
+      amount: 42.00,
+      date: 'Oct 21, 2026',
+      status: 'Money received'
+    },
+    {
+      id: '6',
+      type: 'payment',
+      name: 'Transfer Sent',
+      amount: 1500.00,
+      date: 'Oct 20, 2026',
+      status: 'Payment'
+    },
+    {
+      id: '7',
+      type: 'money_received',
+      name: 'Payment Received',
+      amount: 2600.00,
+      date: 'Oct 19, 2026',
       status: 'Money received'
     }
   ]);
@@ -260,6 +284,7 @@ function App() {
       {currentScreen === 'success' && (
         <SuccessScreen
           onDone={() => navigateTo('dashboard')}
+          onBack={() => navigateTo('dashboard')}
         />
       )}
 

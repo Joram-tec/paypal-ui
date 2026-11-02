@@ -28,8 +28,12 @@ export default function SideMenu({ isOpen, onClose, onNavigate, onLogout }: Side
       <div className="fixed left-0 top-0 bottom-0 w-80 bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out">
         <div className="p-4 flex items-center justify-between border-b border-gray-100">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-paypal-light flex items-center justify-center">
-              <span className="text-white font-semibold">N</span>
+            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-100">
+              <img
+                src="/images/girl-avatar.svg"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
               <p className="font-semibold text-gray-900">Nicole</p>
